@@ -1,14 +1,19 @@
-name: Simple CI Example 
-on: [push] 
-jobs: 
-  build: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Загрузка кода 
-        uses: actions/checkout@v3 
+name: Simple CI Example
 
-      - name: Проверка содержимого 
-        run: | 
-          echo "Проверяем код..." 
-          ls -la 
-          echo "CI успешно выполнен!" 
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Загрузка кода
+        uses: actions/checkout@v3
+
+      - name: Проверка содержимого
+        run: |
+          echo "Проверяем код..."
+          ls -la
+
+      - name: Проверка кода Python
+        run: python main.py
